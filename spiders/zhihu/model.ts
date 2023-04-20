@@ -118,6 +118,9 @@ async function saveZhiHuAuthor(author: any) {
     }
     return zhiHuAuthor;
 }
+export async function countZhiHuAuthor(){
+    return ZhiHuAuthorModel.count()
+}
 async function saveZhiHuQuestion(question: any) {
     let zhiHuQuestion = await ZhiHuQuestionModel.findOne({ id: question.id })
     if (zhiHuQuestion) {
@@ -127,6 +130,9 @@ async function saveZhiHuQuestion(question: any) {
         await zhiHuQuestion.save()
     }
     return zhiHuQuestion;
+}
+export async function countZhiHuQuestion(){
+    return ZhiHuQuestionModel.count()
 }
 async function saveZhiHuRecomment(item: any) {
     try {
@@ -158,6 +164,9 @@ async function saveZhiHuZVideo(item: any) {
     }
     return zhiHuZVideo.toJSON();
 }
+export async function countZhiHuZVideo(){
+    return ZhiHuZVideoModel.count()
+}
 async function saveZhiHuArticle(item: any) {
     const { target } = item;
     const { author, id } = target;
@@ -170,6 +179,9 @@ async function saveZhiHuArticle(item: any) {
         await zhiHuRecomment.save()
     }
     return zhiHuRecomment.toJSON();
+}
+export async function countZhiHuArticle(){
+    return ZhiHuArticleModel.count()
 }
 async function saveZhiHuAnswer(item: any) {
     const { target } = item;
@@ -184,6 +196,14 @@ async function saveZhiHuAnswer(item: any) {
         await zhiHuRecomment.save()
     }
     return zhiHuRecomment.toJSON();
+}
+
+export async function countZhiHuAnswer(){
+    return ZhiHuAnswerModel.count()
+}
+
+export async function getOneZhiHuAnswer(id: number){
+    return ZhiHuAnswerModel.find({id})
 }
 
 export async function saveZhiHuRecomments(data: any[]) {

@@ -31,7 +31,7 @@ export async function recommendTask(page: Page) {
     const recommend = checkRecommendTask(page)
     if (recommend) {
         const recommendData = await recommend.json()
-        const { data, paging } = recommendData;
+        let { data, paging } = recommendData;
         await saveZhiHuRecomments(data)
         let is_end = paging.is_end
         while (!is_end) {
@@ -51,6 +51,7 @@ export async function recommendTask(page: Page) {
             const recommendData = await getData()
             const { data, paging: axiosPaging } = recommendData;
             await saveZhiHuRecomments(data)
+            paging = axiosPaging;
             is_end = axiosPaging.is_end
         }
     }

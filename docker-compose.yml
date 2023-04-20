@@ -1,14 +1,10 @@
 version: "3.9"
-
 services:
-  imeepos:
-    depends_on:
-      - redis
-    build: ./
-    volumes:
-      - "./scripts:/app"
-      - ".env:/app/.env"
-    profiles: ["exclude-from-up"]
-
-  redis:
-    image: "redis/redis-stack-server:latest"
+  mongo:
+      image: mongo:4.4.4-bionic
+      container_name: mongo
+      restart: always
+      ports:
+        - "27017:27017"
+      volumes:
+        - "/Volumes/imeepos/mongo/:/data/db"

@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "zhihu": "ts-node -r tsconfig-paths/register spiders/zhihu.ts",
+    "zhihu:test": "ts-node -r tsconfig-paths/register spiders/zhihu.test.ts",
+    "weibo": "ts-node -r tsconfig-paths/register spiders/weibo.ts",
+    "start": "ts-node -r tsconfig-paths/register spiders/spider.ts"
   },
   "keywords": [],
   "author": "",

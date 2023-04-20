@@ -1,1 +1,5 @@
 node_modules
+*.cookies
+data
+.env
+attachments

@@ -1,8 +1,8 @@
 import { Page } from "puppeteer";
-import { getPageRes, timeout } from "../utils";
+import { getPageRes, timeout, waitForResponse } from "../utils";
 import { saveZhiHuHot } from "./model";
 
-export async function hotTask(page: Page){
+export async function hotTask(page: Page) {
     // hot
     const hot = await page.waitForSelector('.TopstoryTabs-link[aria-controls="Topstory-hot"]')
     if (hot) {
@@ -21,23 +21,11 @@ export async function hotTask(page: Page){
         }
         const hotList = await page.waitForSelector('.HotList-list .HotItem')
         if (hotList) {
-            const ress = getPageRes(page);
-            // https://www.zhihu.com/api/v3/feed/topstory/hot-lists/total?limit=50&desktop=true
-            const res = [...ress].find(res => {
-                const req = res.request();
-                const url = req.url();
-                const { pathname, hostname } = new URL(url, 'http://localhost')
-                if (hostname === 'www.zhihu.com') {
-                    if (pathname === '/api/v3/feed/topstory/hot-lists/total') {
-                        return true;
-                    }
-                }
-                return false;
+            const res = await waitForResponse(page, (pathname, hostname) => {
+                return hostname === 'www.zhihu.com' && pathname === '/api/v3/feed/topstory/hot-lists/total'
             })
-            if (res) {
-                const json = await res.json();
-                await saveZhiHuHot(json)
-            }
+            const json = await res.json();
+            await saveZhiHuHot(json)
         }
     }
 }
