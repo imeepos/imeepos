@@ -30,7 +30,7 @@ export async function bootstraps(tasks: BrowserOptions[]) {
         await bootstrap(task, borwser)
     }
     await borwser.close();
-    await connection.close();
+    // await connection.close();
 }
 export async function bootstrap(options: BrowserOptions, _borwser?: Browser) {
     let borwser = _borwser;

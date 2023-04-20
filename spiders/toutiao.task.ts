@@ -50,8 +50,8 @@ const options: BrowserOptions = {
         await hotBoardTask(page);
         await listFeedTask(page);
         // https://www.toutiao.com/api/pc/list/feed
-        // await page.close()
-        // if (browser) await browser.close()
+        await page.close()
+        if (browser) await browser.close()
     },
     cookies: getCookies('toutiao.cookies')
 }
