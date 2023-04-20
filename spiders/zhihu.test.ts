@@ -2,7 +2,7 @@ import { connect } from 'mongoose'
 import { countZhiHuAnswer, countZhiHuArticle,countZhiHuAuthor, countZhiHuQuestion, countZhiHuZVideo, getOneZhiHuAnswer } from './zhihu/model'
 import { timeout } from './utils'
 
-connect('mongodb://localhost:27017/zhihu').then(() => {
+connect('mongodb://localhost:27017/weibo').then(() => {
     const count = async () => {
         const answer = await countZhiHuAnswer()
         const article = await countZhiHuArticle()

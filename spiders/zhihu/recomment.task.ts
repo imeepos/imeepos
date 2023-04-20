@@ -40,6 +40,14 @@ export async function recommendTask(page: Page) {
             const headers = req.headers()
             const getData = async (): Promise<any> => {
                 console.log(`get url: ${paging.next}`)
+                const { searchParams } = new URL(paging.next)
+                const pnumber = Number(searchParams.get('page_number') || '0')
+                if (pnumber > 100) {
+                    return {
+                        data: [],
+                        paging: { is_end: true }
+                    }
+                }
                 return axios.get(paging.next, {
                     headers: headers
                 }).then(res => res.data).catch(async e => {

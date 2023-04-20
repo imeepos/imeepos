@@ -30,6 +30,7 @@ export async function bootstraps(tasks: BrowserOptions[]) {
         await bootstrap(task, borwser)
     }
     await borwser.close();
+    await connection.close();
 }
 export async function bootstrap(options: BrowserOptions, _borwser?: Browser) {
     let borwser = _borwser;
@@ -79,7 +80,7 @@ export async function bootstrap(options: BrowserOptions, _borwser?: Browser) {
         // console.log(`close`)
     })
     page.on('console', (event) => {
-        console.log(`console`, event.text())
+        // console.log(`console`, event.text())
     })
     page.on('dialog', () => {
         // console.log(`dialog`)
