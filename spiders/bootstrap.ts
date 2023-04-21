@@ -36,7 +36,7 @@ export async function bootstrap(options: BrowserOptions, _borwser?: Browser) {
     let borwser = _borwser;
     if (!borwser) {
         borwser = await launch({
-            headless: false,
+            headless: true,
             ignoreHTTPSErrors: true
         })
     }

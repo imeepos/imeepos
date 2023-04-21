@@ -8,7 +8,8 @@
     "zhihu:test": "ts-node -r tsconfig-paths/register spiders/zhihu.test.ts",
     "weibo": "ts-node -r tsconfig-paths/register spiders/weibo.ts",
     "toutiao": "ts-node -r tsconfig-paths/register spiders/toutiao.ts",
-    "start": "ts-node -r tsconfig-paths/register spiders/spider.ts"
+    "start": "ts-node -r tsconfig-paths/register spiders/spider.ts",
+    "core": "ts-node -r tsconfig-paths/register spiders/core/node.ts"
   },
   "keywords": [],
   "author": "",
