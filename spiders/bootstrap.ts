@@ -1,7 +1,7 @@
 import { launch, Page, Browser, Protocol, Device } from 'puppeteer'
 import { setPageRes } from './utils';
 import { extname } from 'path';
-import { connection, connect } from 'mongoose';
+import { connect } from 'mongoose';
 export const MacBook: Device = {
     userAgent: `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36`,
     viewport: {
