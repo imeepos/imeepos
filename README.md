@@ -1,1 +1,2 @@
-# this is my python project
+# 白虎
+- 为AI赋能
